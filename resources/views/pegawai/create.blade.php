@@ -25,8 +25,13 @@
                             <label for="type_user" class="col-md-4 control-label">type_user</label>
 
                             <div class="col-md-6">
-                                <input id="type_user" type="text" class="form-control" name="type_user" value="{{ old('type_user') }}" required autofocus>
-
+                                <select id="type_user" class="form-control" name="type_user" value="{{ old('type_user') }}"  autofocus>
+                                    <option value="">Pilih</option>
+                                    <option value="Admin">Admin</option>
+                                    <option value="HRD">HRD</option>
+                                    <option value="Bagian Keuangan">Bagian Keuangan</option>
+                                    <option value="Karyawan">Karyawan</option>
+                                </select>
                                 @if ($errors->has('type_user'))
                                     <span class="help-block">
                                         <strong>{{ $errors->first('type_user') }}</strong>
@@ -35,6 +40,7 @@
                             </div>
                         </div>
 
+                        
                         <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
                             <label for="email" class="col-md-4 control-label">E-Mail Address</label>
 

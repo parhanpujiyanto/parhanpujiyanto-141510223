@@ -15,8 +15,8 @@ class CreateLemburPegawaisTable extends Migration
     {
         Schema::create('lembur_pegawais', function (Blueprint $table) {
             $table->increments('id');
-            $table->unsignedInteger('kode_limbur_id');
-            $table->foreign('kode_limbur_id')->references('id')->on('kategori_lemburs')->onDelete('CASCADE');
+            $table->unsignedInteger('kode_lembur_id');
+            $table->foreign('kode_lembur_id')->references('id')->on('kategori_lemburs')->onDelete('CASCADE');
             $table->unsignedInteger('pegawai_id');
             $table->foreign('pegawai_id')->references('id')->on('pegawais')->onDelete('CASCADE');
             $table->Integer('Jumlah_jam');

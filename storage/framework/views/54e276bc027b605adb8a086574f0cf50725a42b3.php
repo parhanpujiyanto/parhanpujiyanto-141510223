@@ -36,7 +36,7 @@
 
                     <!-- Branding Image -->
                     <a class="navbar-brand" href="<?php echo e(url('/')); ?>">
-                        APLIKASI PENGGAJIAN
+                        
                     </a>
                 </div>
 
@@ -51,30 +51,30 @@
                         <!-- Authentication Links -->
                         <?php if(Auth::guest()): ?>
                             <li><a href="<?php echo e(url('/login')); ?>">Login</a></li>
-                            <li><a href="<?php echo e(url('/register')); ?>">Register</a></li>
+                            <!-- <li><a href="<?php echo e(url('/register')); ?>">Register</a></li> -->
                         <?php else: ?>
-                        <li><a class="navbar-brand btn btn-primary" href="<?php echo e(url('/golongan')); ?>">
+                        <li><a class="navbar-brand btn btn-" href="<?php echo e(url('/golongan')); ?>">
                             GOlONGAN
                         </a></li>
-                        <a class="navbar-brand btn btn-primary" href="<?php echo e(url('/jabatan')); ?>">
+                        <a class="navbar-brand btn btn-" href="<?php echo e(url('/jabatan')); ?>">
                             JABATAN
                         </a>
-                        <a class="navbar-brand btn btn-primary" href="<?php echo e(url('/kategori')); ?>">
+                        <a class="navbar-brand btn btn-" href="<?php echo e(url('/kategori')); ?>">
                             KATEGORI LEMBUR
                         </a>
-                        <a class="navbar-brand btn btn-primary" href="<?php echo e(url('/tunjangan')); ?>">
+                        <a class="navbar-brand btn btn-" href="<?php echo e(url('/tunjangan')); ?>">
                             TUNJANGAN
                         </a>
-                        <a class="navbar-brand btn btn-primary" href="<?php echo e(url('/pegawai')); ?>">
+                        <a class="navbar-brand btn btn-" href="<?php echo e(url('/pegawai')); ?>">
                             PEGAWAI
                         </a>
-                        <a class="navbar-brand btn btn-primary" href="<?php echo e(url('/lemburp')); ?>">
+                        <a class="navbar-brand btn btn-" href="<?php echo e(url('/lemburp')); ?>">
                             LEMBUR PEGAWAI
                         </a>
-                        <a class="navbar-brand btn btn-primary" href="<?php echo e(url('/tunjanganp')); ?>">
+                        <a class="navbar-brand btn btn-" href="<?php echo e(url('/tunjanganp')); ?>">
                             TUNJANGAN PEGAWAI
                         </a>
-                        <a class="navbar-brand btn btn-primary" href="<?php echo e(url('/penggajian')); ?>">
+                        <a class="navbar-brand btn btn-" href="<?php echo e(url('/penggajian')); ?>">
                             PENGGAJIAN
                         </a>
                             <li class="dropdown">

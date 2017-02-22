@@ -18,6 +18,12 @@ class lemburpegawaiController extends Controller
      */
     public function index()
     {
+
+        // $lembur=Lembur_pegawai::selectRaw("sum(lembur_pegawais.Jumlah_jam) as Jumlah_jam ,
+        //                                     lembur_pegawais.kode_lembur_id as kode_lembur_id,
+        //                                     lembur_pegawais.pegawai_id as pegawai_id" )
+        //                         ->groupBy('kode_lembur_id','pegawai_id')
+        //                         ->get();
         $lembur=Lembur_pegawai::all();
         return view('lemburp.index',compact('lembur'));
     }
@@ -34,6 +40,13 @@ class lemburpegawaiController extends Controller
         return view('lemburp.create',compact('pegawai','kategori'));
         //
     }
+        public function error1()
+    {
+        $pegawai=Pegawai::all();
+        $kategori=Kategori_lembur::all();
+        return view('lemburp.error1',compact('pegawai','kategori'));
+        //
+    }
 
     /**
      * Store a newly created resource in storage.
@@ -43,26 +56,40 @@ class lemburpegawaiController extends Controller
      */
     public function store(Request $request)
     {
+
         $roles=[
-            'kode_lembur_id'=>'required|unique:lembur_pegawais',
             'pegawai_id'=>'required',
             'Jumlah_jam'=>'required',
         ];
         $sms=[
-            'kode_lembur_id.required'=>'jangan kosong',
-            'kode_lembur_id.unique'=>'jangan sama',
             'pegawai_id.required'=>'jangan kosong',
             'Jumlah_jam.required'=>'jangan kosong',
         ];
         $validasi=Validator::make(Input::all(),$roles,$sms);
         if($validasi->fails()){
-            return redirect()->back()
+            return redirect('lemburp/create')
                     ->WithErrors($validasi)
                     ->WithInput();
         }
-        $lembur=Request::all();
-        Lembur_pegawai::create($lembur);
-        return redirect('lemburp');
+        else{
+
+            $pegawai=Pegawai::where('id',Request('pegawai_id'))->first();
+            $kategori=Kategori_lembur::where('jabatan_id',$pegawai->jabatan_id)->where('golongan_id',$pegawai->golongan_id)->first();
+
+            // dd($kategori);
+            if($kategori){
+
+                $lembur=new Lembur_pegawai;
+                $lembur->pegawai_id=Request('pegawai_id');
+                $lembur->kode_lembur_id=$kategori->id;
+                $lembur->Jumlah_jam=Request('Jumlah_jam');
+                $lembur->save();
+                return redirect('lemburp');
+            
+            
+            }
+                return redirect('error1');
+        }
     }
 
     /**
@@ -140,6 +167,7 @@ class lemburpegawaiController extends Controller
      */
     public function destroy($id)
     {
+
         $lembur=Lembur_pegawai::find($id)->delete();
         return redirect('lemburp');
     }

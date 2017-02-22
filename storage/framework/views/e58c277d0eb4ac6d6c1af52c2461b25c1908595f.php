@@ -3,6 +3,7 @@
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
             <div class="panel panel-default">
+            <body background="/assets/image/kacau.jpg">
                 <div class="panel-heading">Login</div>
                 <div class="panel-body">
                     <form class="form-horizontal" role="form" method="POST" action="<?php echo e(url('/login')); ?>">
@@ -22,6 +23,7 @@
                                 <?php endif; ?>
                             </div>
                         </div>
+                        </body>
 
                         <div class="form-group<?php echo e($errors->has('password') ? ' has-error' : ''); ?>">
                             <label for="password" class="col-md-4 control-label">Password</label>

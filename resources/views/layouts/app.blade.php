@@ -36,7 +36,7 @@
 
                     <!-- Branding Image -->
                     <a class="navbar-brand" href="{{ url('/') }}">
-                        APLIKASI PENGGAJIAN
+                        
                     </a>
                 </div>
 
@@ -51,30 +51,30 @@
                         <!-- Authentication Links -->
                         @if (Auth::guest())
                             <li><a href="{{ url('/login') }}">Login</a></li>
-                            <li><a href="{{ url('/register') }}">Register</a></li>
+                            <!-- <li><a href="{{ url('/register') }}">Register</a></li> -->
                         @else
-                        <li><a class="navbar-brand btn btn-primary" href="{{ url('/golongan') }}">
+                        <li><a class="navbar-brand btn btn-" href="{{ url('/golongan') }}">
                             GOlONGAN
                         </a></li>
-                        <a class="navbar-brand btn btn-primary" href="{{ url('/jabatan') }}">
+                        <a class="navbar-brand btn btn-" href="{{ url('/jabatan') }}">
                             JABATAN
                         </a>
-                        <a class="navbar-brand btn btn-primary" href="{{ url('/kategori') }}">
+                        <a class="navbar-brand btn btn-" href="{{ url('/kategori') }}">
                             KATEGORI LEMBUR
                         </a>
-                        <a class="navbar-brand btn btn-primary" href="{{ url('/tunjangan') }}">
+                        <a class="navbar-brand btn btn-" href="{{ url('/tunjangan') }}">
                             TUNJANGAN
                         </a>
-                        <a class="navbar-brand btn btn-primary" href="{{ url('/pegawai') }}">
+                        <a class="navbar-brand btn btn-" href="{{ url('/pegawai') }}">
                             PEGAWAI
                         </a>
-                        <a class="navbar-brand btn btn-primary" href="{{ url('/lemburp') }}">
+                        <a class="navbar-brand btn btn-" href="{{ url('/lemburp') }}">
                             LEMBUR PEGAWAI
                         </a>
-                        <a class="navbar-brand btn btn-primary" href="{{ url('/tunjanganp') }}">
+                        <a class="navbar-brand btn btn-" href="{{ url('/tunjanganp') }}">
                             TUNJANGAN PEGAWAI
                         </a>
-                        <a class="navbar-brand btn btn-primary" href="{{ url('/penggajian') }}">
+                        <a class="navbar-brand btn btn-" href="{{ url('/penggajian') }}">
                             PENGGAJIAN
                         </a>
                             <li class="dropdown">
