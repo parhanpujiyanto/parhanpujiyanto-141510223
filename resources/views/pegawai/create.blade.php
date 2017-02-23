@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts2.app')
 @section('content')
 <div class="container">
     <div class="row">
@@ -27,10 +27,10 @@
                             <div class="col-md-6">
                                 <select id="type_user" class="form-control" name="type_user" value="{{ old('type_user') }}"  autofocus>
                                     <option value="">Pilih</option>
-                                    <option value="Admin">Admin</option>
-                                    <option value="HRD">HRD</option>
-                                    <option value="Bagian Keuangan">Bagian Keuangan</option>
-                                    <option value="Karyawan">Karyawan</option>
+                                    <option value="admin">admin</option>
+                                    <option value="hrd">hrd</option>
+                                    <option value="Keuangan">keuangan</option>
+                                    <option value="pegawai">pegawai</option>
                                 </select>
                                 @if ($errors->has('type_user'))
                                     <span class="help-block">

@@ -24,7 +24,10 @@ Route::resource('/kategori', 'kategoriController');
 Route::resource('/tunjangan', 'tunjanganController');
 Route::resource('/pegawai', 'pegawaiController');
 Route::resource('/lemburp','lemburpegawaiController');
-Route::resource('/tunjanganp','tunjanganController');
+Route::resource('/tunjanganp','tunjanganpController');
 Route::resource('/penggajian','penggajianController');
+Route::get('/akses', function () {
+    return view('akses');
+});
 
 

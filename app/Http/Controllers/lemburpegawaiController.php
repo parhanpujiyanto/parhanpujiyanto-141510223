@@ -16,6 +16,10 @@ class lemburpegawaiController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+       public function __construct()
+    {
+        $this->middleware('keuangan');
+    }
     public function index()
     {
 

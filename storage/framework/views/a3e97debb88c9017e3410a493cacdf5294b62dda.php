@@ -27,10 +27,10 @@
                             <div class="col-md-6">
                                 <select id="type_user" class="form-control" name="type_user" value="<?php echo e(old('type_user')); ?>"  autofocus>
                                     <option value="">Pilih</option>
-                                    <option value="Admin">Admin</option>
-                                    <option value="HRD">HRD</option>
-                                    <option value="Bagian Keuangan">Bagian Keuangan</option>
-                                    <option value="Karyawan">Karyawan</option>
+                                    <option value="admin">admin</option>
+                                    <option value="hrd">hrd</option>
+                                    <option value="Keuangan">keuangan</option>
+                                    <option value="pegawai">pegawai</option>
                                 </select>
                                 <?php if($errors->has('type_user')): ?>
                                     <span class="help-block">
@@ -171,4 +171,4 @@
 </div>
 
 <?php $__env->stopSection(); ?>
-<?php echo $__env->make('layouts.app', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+<?php echo $__env->make('layouts2.app', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

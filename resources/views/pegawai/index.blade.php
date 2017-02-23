@@ -22,7 +22,7 @@
 				<td>{{$data->user->name}}</td>
 				<td>{{$data->golongan->nama_g}}</td>
 				<td>{{$data->jabatan->nama_j}}</td>
-				<td><img src="assets/image/{{$data->photo}}" height="150" width="125"></td>
+				<td><img src="/assets/image/{{$data->photo}}" height="150" width="125"></td>
 
 				<td>
 					<a href="{{route('pegawai.edit',$data->id)}}" class='btn btn-warning'> Edit </a>

@@ -15,6 +15,10 @@ class kategoriController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+       public function __construct()
+    {
+        $this->middleware('admin');
+    }
     public function index()
     {
         $kategori=Kategori_lembur::all();

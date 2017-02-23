@@ -26,8 +26,15 @@
                             <label for="type_user" class="col-md-4 control-label">type_user</label>
 
                             <div class="col-md-6">
-                                <input id="type_user" type="text" class="form-control" name="type_user" value="<?php echo e(old('type_user')); ?>" required autofocus>
-
+                               <select name="type_user" class="form-control">
+                <option value="">Silahkan Pilih</option>
+            
+            <option value="admin">admin</option>
+            <option value="keuangan">keuangan</option>
+            <option value="hrd">hrd</option>
+            <option value="pegawai">pegawai</option>
+            
+            </select>
                                 <?php if($errors->has('type_user')): ?>
                                     <span class="help-block">
                                         <strong><?php echo e($errors->first('type_user')); ?></strong>

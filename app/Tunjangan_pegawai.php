@@ -15,12 +15,12 @@ class Tunjangan_pegawai extends Model
     	'pegawai_id'
     	);
   public function pegawai() {
-        return $this->belongsTo('App\Models\Pegawai', 'pegawai_id');
+        return $this->belongsTo('App\Pegawai', 'pegawai_id');
     }
     public function tunjangan() {
-        return $this->belongsTo('App\Models\Tunjangan', 'kode_tunjangan_id');
+        return $this->belongsTo('App\Tunjangan', 'kode_tunjangan_id');
     }
      public function penggajihan() {
-        return $this->hasMany('App\Models\Penggajihan', 'tunjangan_pegawai_id');
+        return $this->hasMany('App\Penggajihan', 'tunjangan_pegawai_id');
     }
 }

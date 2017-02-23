@@ -21,7 +21,7 @@
 				<td><?php echo e($data->user->name); ?></td>
 				<td><?php echo e($data->golongan->nama_g); ?></td>
 				<td><?php echo e($data->jabatan->nama_j); ?></td>
-				<td><img src="assets/image/<?php echo e($data->photo); ?>" height="150" width="125"></td>
+				<td><img src="/assets/image/<?php echo e($data->photo); ?>" height="150" width="125"></td>
 
 				<td>
 					<a href="<?php echo e(route('pegawai.edit',$data->id)); ?>" class='btn btn-warning'> Edit </a>

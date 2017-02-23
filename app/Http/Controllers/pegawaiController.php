@@ -8,6 +8,7 @@ use Input;
 use App\Golongan;
 use App\Jabatan;
 use App\Pegawai;
+use App\Tunjangan_pegawai;
 use App\User;
 
 class pegawaiController extends Controller
@@ -17,10 +18,15 @@ class pegawaiController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+       public function __construct()
+    {
+        $this->middleware('hrd');
+    }
     public function index()
     {
         $pegawai=Pegawai::all();
-        return view('pegawai.index',compact('pegawai'));
+        $tunjangan_pegawai=Tunjangan_pegawai::all();
+        return view('pegawai.index',compact('pegawai','tunjangan_pegawai'));
     }
 
     /**
