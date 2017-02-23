@@ -7,6 +7,8 @@ use Validator;
 use Input;
 use App\Lembur_pegawai;
 use App\Pegawai;
+use App\Golongan;
+use App\Jabatan;
 use App\Kategori_lembur;
 
 class lemburpegawaiController extends Controller
@@ -117,8 +119,10 @@ class lemburpegawaiController extends Controller
     {
         $pegawai=Pegawai::all();
         $kategori=Kategori_lembur::all();
-        $lembur=Lembur_pegawai::find($id);
-        return view('lemburp.edit',compact('lembur','pegawai','kategori'));
+        $golongan=Golongan::all();
+        $jabatan=Jabatan::all();
+        $lemburp=Lembur_pegawai::find($id);
+        return view('lemburp.edit',compact('lemburp','pegawai','kategori','golongan','jabatan'));
     }
 
     /**
@@ -130,26 +134,13 @@ class lemburpegawaiController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $lembur=Lembur_pegawai::where('id',$id)->first();
-        if($lembur['kode_lembur_id'] != Request('kode_lembur_id')){
-            $roles=[
-            'kode_lembur_id'=>'required',
-            'pegawai_id'=>'required',
-            'Jumlah_jam'=>'required',
+         $roles=[
+            'Jumlah_jam'=>'required|numeric',
         ];
-        }
-        else{
-            $roles=[
-            'kode_lembur_id'=>'required|unique:lembur_pegawais',
-            'pegawai_id'=>'required',
-            'Jumlah_jam'=>'required',
-        ];
-        }
+        
         $sms=[
-            'kode_lembur_id.required'=>'jangan kosong',
-            'kode_lembur_id.unique'=>'jangan sama',
-            'pegawai_id.required'=>'jangan kosong',
             'Jumlah_jam.required'=>'jangan kosong',
+            'Jumlah_jam.numeric'=>'harus angka',
         ];
         $validasi=Validator::make(Input::all(),$roles,$sms);
         if($validasi->fails()){
@@ -161,6 +152,37 @@ class lemburpegawaiController extends Controller
         $lembur=Lembur_pegawai::find($id);
         $lembur->update($update);
         return redirect('lemburp');
+        // $lembur=Lembur_pegawai::where('id',$id)->first();
+        // if($lembur['kode_lembur_id'] != Request('kode_lembur_id')){
+        //     $roles=[
+        //     'kode_lembur_id'=>'required',
+        //     'pegawai_id'=>'required',
+        //     'Jumlah_jam'=>'required',
+        // ];
+        // }
+        // else{
+        //     $roles=[
+        //     'kode_lembur_id'=>'required|unique:lembur_pegawais',
+        //     'pegawai_id'=>'required',
+        //     'Jumlah_jam'=>'required',
+        // ];
+        // }
+        // $sms=[
+        //     'kode_lembur_id.required'=>'jangan kosong',
+        //     'kode_lembur_id.unique'=>'jangan sama',
+        //     'pegawai_id.required'=>'jangan kosong',
+        //     'Jumlah_jam.required'=>'jangan kosong',
+        // ];
+        // $validasi=Validator::make(Input::all(),$roles,$sms);
+        // if($validasi->fails()){
+        //     return redirect()->back()
+        //             ->WithErrors($validasi)
+        //             ->WithInput();
+        // }
+        // $update=Request::all();
+        // $lembur=Lembur_pegawai::find($id);
+        // $lembur->update($update);
+        // return redirect('lemburp');
     }
 
     /**
