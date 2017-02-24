@@ -38,7 +38,7 @@
 
 
                         </h5>
-                        @if(Auth::user()->type_user=='admin'||Auth::user()->type_user=='hrd')
+                        @if(Auth::user()->type_user=='admin'||Auth::User()->type_user=='hrd')
                                 <a class="btn btn-primary col-md-12" href="{{url('penggajian')}}">Kembali</a>
                              @elseif(Auth::user()->type_user=='pegawai')
                              <a class="btn btn-primary col-md-12" href="{{url('/')}}">Kembali</a>
