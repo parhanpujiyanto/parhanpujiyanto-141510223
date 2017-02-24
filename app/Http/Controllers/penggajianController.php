@@ -57,7 +57,7 @@ public function __construct()
        $penggajian=Input::all();
          //dd($penggajian);
         $where=Tunjangan_Pegawai::where('id',$penggajian['tunjangan_pegawai_id'])->first();
-        //dd($where);
+            //dd($where);
         $wherepenggajian=Penggajian::where('tunjangan_pegawai_id',$where->id)->first();
         //dd($wherepenggajian);
         $wheretunjangan=Tunjangan::where('id',$where->kode_tunjangan_id)->first();

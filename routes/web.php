@@ -31,3 +31,11 @@ Route::get('/akses', function () {
 });
 
 
+Route::group(['middleware' => ['api']], function () {
+    Route::post('register', 'ApiController@register');
+    Route::post('/', 'ApiController@login');
+    Route::group(['middleware' => 'jwt-auth'], function () {
+    	Route::post('get_user_details', 'ApiController@get_user_details');
+    });
+});
+
